@@ -1,5 +1,5 @@
 {
-  "name": "viper7/yaac",
+  "name": "afosto/yaac",
   "description": "Yet Another ACME client: a decoupled LetsEncrypt client",
   "type": "package",
   "keywords": [
@@ -9,7 +9,7 @@
     "v2",
     "encrypt"
   ],
-  "homepage": "https://Viper-7.com",
+  "homepage": "https://afosto.com",
   "license": "Apache-2.0",
   "authors": [
     {
