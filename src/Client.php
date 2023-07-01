@@ -18,12 +18,12 @@ class Client
     /**
      * Live url
      */
-    const DIRECTORY_LIVE = 'https://acme-v02.api.letsencrypt.org/directory';
+    public $directory_live = 'https://acme-v02.api.letsencrypt.org/directory';
 
     /**
      * Staging url
      */
-    const DIRECTORY_STAGING = 'https://acme-staging-v02.api.letsencrypt.org/directory';
+    public $directory_staging = 'https://acme-staging-v02.api.letsencrypt.org/directory';
 
     /**
      * Flag for production
@@ -372,7 +372,7 @@ class Client
             $config = [
                 'base_uri' => (
                 ($this->getOption('mode', self::MODE_LIVE) == self::MODE_LIVE) ?
-                    self::DIRECTORY_LIVE : self::DIRECTORY_STAGING),
+                    $this->directory_live : $this->directory_staging),
             ];
             if ($this->getOption('source_ip', false) !== false) {
                 $config['curl.options']['CURLOPT_INTERFACE'] = $this->getOption('source_ip');
