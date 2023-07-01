@@ -305,7 +305,7 @@ class Client
             );
             $data = json_decode((string)$response->getBody(), true);
             if ($maxAttempts > 1 && $data['status'] != 'valid') {
-                sleep(ceil(15 / $maxAttempts));
+                sleep(ceil(30 / $maxAttempts));
             }
             $maxAttempts--;
         } while ($maxAttempts > 0 && ($data['status'] == 'pending' || $data['status'] == 'ready'));
