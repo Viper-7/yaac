@@ -111,7 +111,10 @@ class Client
     protected $config;
 
     protected $lastError = '';
-    
+
+    public function getLastError() {
+        return $this->lastError;
+    }
 
     /**
      * Client constructor.
