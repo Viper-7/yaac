@@ -110,6 +110,9 @@ class Client
      */
     protected $config;
 
+    protected $lastError = '';
+    
+
     /**
      * Client constructor.
      *
@@ -302,9 +305,11 @@ class Client
                 sleep(ceil(15 / $maxAttempts));
             }
             $maxAttempts--;
-        } while ($maxAttempts > 0 && $data['status'] != 'valid');
+        } while ($maxAttempts > 0 && ($data['status'] == 'pending' || $data['status'] == 'ready'));
 
-        return (isset($data['status']) && $data['status'] == 'valid');
+        if(isset($data['status']) && $data['status'] == 'valid') return true;
+        if(isset($data['error']['details'])) $this->lastError = $data['error']['details'];
+        return false;
     }
 
     /**
